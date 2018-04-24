@@ -2,6 +2,9 @@ const express= require('express');
 
 const app= new express();
 
+
+app.use(express.static(__dirname + '/public'));
+
 app.get('/',(req, resp)=>{
     //resp.send('<h1>Hello express</h1>');
     resp.send({
@@ -22,4 +25,6 @@ app.get('/bad',(req,resp)=>{
     });
 });
 
-app.listen(3000);
+app.listen(3000,()=>{
+    console.log("Server is up on port 3000!")
+});
